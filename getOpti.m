@@ -8,4 +8,3 @@ function [ x ] = getOpti( f, lb, ub )
 x = linprog(f, A, b, [], [], lb, ub);
 
 end
-

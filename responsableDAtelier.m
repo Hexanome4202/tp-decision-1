@@ -1,10 +1,10 @@
 function [ x ] = responsableDAtelier()
 
-[ A, b, lb ] = constraints();
+[ A, b ] = constraints();
 
 f = [-1; -1; -1; -1; -1; -1];
 
-x = linprog(f, A, b, [], [], lb);
+x = linprog(f, A, b, [], [], zeros(6,1));
 
 
 
