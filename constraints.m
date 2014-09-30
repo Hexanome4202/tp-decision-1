@@ -1,4 +1,4 @@
-function [ A, b ] = constraints( )
+function [ A, b, lb ] = constraints( )
 %CONSTRAINTS Summary of this function goes here
 %   Detailed explanation goes here
 
