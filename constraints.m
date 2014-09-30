@@ -1,4 +1,4 @@
-function [ A, b, lb ] = constraints( )
+function [ A, b ] = constraints( )
 %CONSTRAINTS Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -16,8 +16,6 @@ A = [
 ];
 
 b = [350; 620; 485; 4800; 4800; 4800; 4800; 4800; 4800; 4800];
-
-lb = [0; 0; 0; 0; 0; 0];
 
 end
 

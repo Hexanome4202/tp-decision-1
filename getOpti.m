@@ -1,10 +1,11 @@
-function [ x ] = getOpti( f )
+function [ x ] = getOpti( f, lb, ub )
 %GETOPTI Summary of this function goes here
-%   Detailed explanation goes here
+%   if no ub, then ub must be equal to []
+%   lb by default must be equal to zeros(6,1);
 
-[A, b, lb] = constraints();
+[A, b] = constraints();
 
-x = linprog(f, A, b, [], [], lb);
+x = linprog(f, A, b, [], [], lb, ub);
 
 end
 
