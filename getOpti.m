@@ -4,6 +4,7 @@ function [ x ] = getOpti( f )
 
 [A, b, lb] = constraints();
 
+x = linprog(f, A, b, [], [], lb);
 
 end
 
