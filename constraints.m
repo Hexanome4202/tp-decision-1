@@ -3,7 +3,7 @@ function [ A, b ] = constraints( )
 %   Detailed explanation goes here
 
 A = [
-     1 2 1 1 1 1;
+     1 2 1 5 0 2;
      2 2 1 2 2 1;
      1 0 3 2 2 0;
      8 15 0 5 0 10;
