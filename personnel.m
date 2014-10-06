@@ -21,7 +21,11 @@ function [ x ] = personnel( )
     for i=1:100
         I(i,1) = i;
         %x = linprog(f, A, b, [], [], (i/100)*comptable(), []);
-        x = linprog(f, A, b, [], [], (i/100)*responsableDAtelier(), []);
+        Aperso = A;
+        Aperso(11,:) = -function_of_comptable();
+        bperso = b;
+        bperso(11,:) = -(i/100)*sum(getBenef(comptable()));
+        x = linprog(f, Aperso, bperso, [], [], zeros(1,6), []);
 
         x1 = sum(x.*M(:,1));
         X1(i,1) = x1;
