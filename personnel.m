@@ -1,16 +1,42 @@
-function [ f ] = personnel( )
+function [ x ] = personnel( )
 %PERSONNEL Summary of this function goes here
 %   Detailed explanation goes here
 
-f = [13; 1; 11; 7; 20; 50];
+    f = [13; 1; 11; 7; 20; 50];
 
-[Aperso, bperso] = constraints();
+    [A, b] = constraints();
 
-Aperso(11,:) = -1*getOpti(comptable(), zeros(6,1), []);
+    M =[8 5;
+        1 0;
+        11 0;
+        0 7;
+        10 10;
+        25 25];
+    
+    I = zeros(100);
+    X1 = zeros(100);
+    X2 = zeros(100);
+    TOT = zeros(100);
 
-bperso(11) = 0.8*sum(getBenef(Aperso(11,:)));
+    for i=1:100
+        I(i,1) = i;
+        %x = linprog(f, A, b, [], [], (i/100)*comptable(), []);
+        x = linprog(f, A, b, [], [], (i/100)*responsableDAtelier(), []);
 
-linprog(f, Aperso, bperso, [], [], zeros(6,1), []);
+        x1 = sum(x.*M(:,1));
+        X1(i,1) = x1;
+
+        x2 = sum(x.*M(:,2));
+        X2(i,1) = x2;
+
+        TOT(i,1) = x1 + x2;
+        
+    end
+    hold on;
+    plot(I,X1, 'RED');
+    plot(I,X2, 'BLUE');
+    plot(I,TOT, 'BLACK');
+    hold off;
 
 end
 

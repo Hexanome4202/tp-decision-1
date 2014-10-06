@@ -1,4 +1,4 @@
-function [f] = comptable()
+function [X] = comptable()
     M= [8 7 8 2 5 5 5;
         15 1 1 10 0 5 3;
         0 2 11 5 0 3 5;
@@ -34,5 +34,9 @@ function [f] = comptable()
     QMPA=sum(QMPA(:,:),1);
     
     f=-(PV'-MCH-QMPA');
+    
+    [A,b]=constraints();
+    
+    X = linprog(f, A, b, [], [], zeros(6,1), []);
 end
 
