@@ -11,7 +11,11 @@ I = zeros(100,1);
 
 for i=1:100
     I(i,1) = i;
-    x = linprog(f, A, b, [], [], (i/100)*responsableDAtelier(), []);
+    Aperso = A;
+    Aperso(11,:) = -function_of_comptable();
+    bperso = b;
+    bperso(11,:) = -(i/100)*sum(getBenef(comptable()));
+    x = linprog(f, Aperso, bperso, [], [], zeros(6,1), []);
 
     X(i,1) = sum(x);
 end
