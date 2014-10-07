@@ -1,4 +1,4 @@
-function [ X ] = stocks( )
+function [ xFinal ] = stocks( )
 %SOTCKS Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -27,6 +27,11 @@ for i=1:100
    
     if i>1
         coeff(i,1) = (X(i,1)-X(1,1))/(i-1);
+    end
+    
+    %Solution optimale
+    if i==64
+        xFinal = x;
     end
     
 end

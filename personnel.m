@@ -1,4 +1,4 @@
-function [ x ] = personnel( )
+function [ xFinal ] = personnel( )
 %PERSONNEL Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -34,6 +34,11 @@ function [ x ] = personnel( )
         X2(i,1) = x2;
 
         TOT(i,1) = x1 + x2;
+        
+        %Solution optimale
+        if i==80
+            xFinal = x;
+        end
         
     end
     hold on;
