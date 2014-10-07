@@ -21,7 +21,7 @@ for epsi = 0:600
     b1 = [b; epsi; epsi];
     x = linprog(f, A, b1, [], [], lb);
 
-    benefs = [benefs getBenef(x)];
+    benefs = [benefs (getBenef(x)/getBenef(comptable())*100)];
     abscisse = getEcart(x);
     epsilon = [epsilon epsi];
     

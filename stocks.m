@@ -35,9 +35,9 @@ for i=1:100
     end
     
 end
-plot(I,X);
-figure(2);
-plot(I,coeff);
+%plot(I,X);
+%figure(2);
+%plot(I,coeff);
 
 end
 

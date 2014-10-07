@@ -41,11 +41,11 @@ function [ xFinal ] = personnel( )
         end
         
     end
-    hold on;
-    plot(I,X1, 'RED');
-    plot(I,X2, 'BLUE');
-    plot(I,TOT, 'BLACK');
-    hold off;
+%     hold on;
+%     plot(I,X1, 'RED');
+%     plot(I,X2, 'BLUE');
+%     plot(I,TOT, 'BLACK');
+%     hold off;
 
 end
 
