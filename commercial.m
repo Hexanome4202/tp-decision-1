@@ -19,10 +19,10 @@ f=-function_of_comptable;
     
 for epsi = 0:600
     b1 = [b; epsi; epsi];
-    x = linprog(f, A, b1, [], [], lb)
+    x = linprog(f, A, b1, [], [], lb);
 
     benefs = [benefs sum(getBenef(x))];
-    abscisse = abs(x(1)+x(2)+x(3)-x(4)-x(5)-x(6));
+    abscisse = getEcart(x);
     epsilon = [epsilon epsi];
 end
 
@@ -32,8 +32,8 @@ benefs
 
 
 %Nombre de produits pour le meilleur epsilon :
-b1 = [b; epsi; epsi];
-x = linprog(f, A, b1, [], [], lb);
+b1 = [b; 0; 0];
+x = linprog(f, A, b1, [], [], lb)
 
 sum(x)
 
