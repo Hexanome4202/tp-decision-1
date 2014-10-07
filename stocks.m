@@ -23,10 +23,7 @@ for i=1:100
     bsto(11,:) = -(i/100)*sum(getBenef(comptable()));
 
     x = linprog(f, Asto, bsto, [], [], zeros(1,6), []);
-    X(i,1) = 0;
-    for j=1:size(x,1)
-        X(i,1)= X(i,1) + x(j)*(sum(QMP(:,j))+1);
-    end
+    X(i,1) = getStock(x);
    
     if i>1
         coeff(i,1) = (X(i,1)-X(1,1))/(i-1);
