@@ -26,11 +26,11 @@ for epsi = 0:600
     epsilon = [epsilon epsi];
     
     %Solution Optimale
-    if epsi == 1
+    if epsi == 0
         xFinal = x;
     end
 end
 
-%plot(epsilon, benefs);
+plot(benefs, epsilon);
 
 end
