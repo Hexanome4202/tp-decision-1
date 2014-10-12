@@ -31,6 +31,6 @@ for epsi = 0:600
     end
 end
 
-plot(benefs, epsilon);
+plot(epsilon, benefs);
 
 end
